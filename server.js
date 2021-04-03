@@ -1,46 +1,19 @@
-const port = 8000;
+// Setup empty JS object to act as endpoint for all routes
+projectData = {};
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+// Require Express to run server and routes
 
-const app = express();
+// Start up an instance of app
 
-
-app.use(bodyParser.urlencoded({extended: false}));
+/* Middleware*/
+//Here we are configuring express to use body-parser as middle-ware.
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors());
 
-app.use(express.static("client"));
+// Cors for cross origin allowance
 
-const server = app.listen(port,listening);
-
-// app.get('/', function (req, res) {
-//     res.send('hello world');
-//   })
+// Initialize the main project folder
+app.use(express.static('website'));
 
 
-
-
-// const data = [];
-// app.post('/',function(req , res){
-    // console.log(req.body);
-    // data.push(req.body);
-//     res.send('POST received');
-// })
-
-
-
-function listening(){
-    console.log("the server is runing");
-    console.log("the server is on PORT : ",port);
-}
-
-
-const data = [];
-app.post('/addMovie',postfunction);
-
-function postfunction(req,res){
-    data.push(req.body);
-    console.log(data);
-}
+// Setup Server
