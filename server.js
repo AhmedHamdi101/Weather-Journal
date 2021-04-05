@@ -1,6 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
 projectData = {};
-projectData.name = "Ahmed";
 
 // Require Express to run server and routes
 const express = require('express');
@@ -33,19 +32,22 @@ function listening(){
     console.log("The server is on PORT : ",port);
 }
 
+// GET Route
 app.get('/getProjectData',getProjectData);
-// app.get('/getAPI',getAPIfunction);
+
+// POST Route
 app.post('/postData',postfunction);
 
-
+// Callback function to complete GET '/getProjectData'
 function getProjectData(req,res){
+    // console.log(projectData);
     res.send(projectData);
 }
 
-
+// Callback function to complete POST '/postData'
 function postfunction(req,res){
     projectData.temprature = req.body.temprature;
     projectData.date = req.body.date;
     projectData.user_response = req.body.user_response;
-    console.log(projectData);
+    // console.log(projectData);
 }
